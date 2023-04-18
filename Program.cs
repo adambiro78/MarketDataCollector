@@ -26,9 +26,19 @@ namespace MarketDataCollector
          */
         public async Task CollectMarketData()
         {
-            var adapter = new DeribitExchangeAdapter();
-            var marketdata = await adapter.GetMarketData(_securitySymbol);
-            //TODO
+            try
+            {
+                var adapter = new DeribitExchangeAdapter();
+                var marketdata = await adapter.GetMarketData(_securitySymbol);
+                //MarketData => json
+                var json = JsonConvert.SerializeObject(marketdata, Formatting.Indented);
+                //json => file
+                File.WriteAllText(_filePath, json);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while collecting market data: {ex.Message}");
+            }
 
         }
     }
@@ -61,14 +71,18 @@ namespace MarketDataCollector
             //Send a GET request to the specified Uri
             var response = await _httpClient.GetAsync(url);
 
-            //TODO
+            //Serialize the HTTP content to a string
+            var responseString = await response.Content.ReadAsStringAsync();
 
+            //string => json
+            dynamic? jsonResponse = JsonConvert.DeserializeObject(responseString);
 
+            //json => MarketData
             return new MarketData
             {
-                AskPrice = 0,
-                BidPrice = 0,
                 SecuritySymbol = securitySymbol,
+                AskPrice = jsonResponse["result"][0]["ask_price"],
+                BidPrice = jsonResponse["result"][0]["bid_price"],
                 Timestamp = DateTime.UtcNow.Ticks
             };
         }
@@ -98,7 +112,7 @@ namespace MarketDataCollector
 
             //Send a POST request to the specified Uri
             var response = await _httpClient.PostAsync(url, requestBodyContent);
-            //TODO: bad request...I don't know why
+            //TODO: bad request...
 
             if (response.IsSuccessStatusCode)
             {
