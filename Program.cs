@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Text;
@@ -27,6 +28,7 @@ namespace MarketDataCollector
         {
             var adapter = new DeribitExchangeAdapter();
             var marketdata = await adapter.GetMarketData(_securitySymbol);
+            //TODO
 
         }
     }
@@ -53,7 +55,14 @@ namespace MarketDataCollector
         {
             await Authorize();
 
+            //https://test.deribit.com/api/v2/public/get_book_summary_by_instrument?instrument_name=BTC-PERPETUAL
+            var url = $"{_baseUrl}public/get_book_summary_by_instrument?instrument_name={securitySymbol}";
+
+            //Send a GET request to the specified Uri
+            var response = await _httpClient.GetAsync(url);
+
             //TODO
+
 
             return new MarketData
             {
@@ -75,19 +84,26 @@ namespace MarketDataCollector
                     &grant_type=client_credentials" \
                 -H "Content-Type: application/json"
              */
-            var url = $"{_baseUrl}/public/auth";
+            var url = $"{_baseUrl}public/auth";
             var requestBody = new
             {
-                client_id = _clientId, 
-                client_secret = _clientSecret,
-                grant_type = "client_credentials"
+                grant_type = "client_credentials",
+                client_id = _clientId,
+                client_secret = _clientSecret
             };
 
-            //TODO
-            HttpContent? requestBodyContent = null;
+            //Json serialization
+            var requestBodyJson = JsonConvert.SerializeObject(requestBody);
+            var requestBodyContent = new StringContent(requestBodyJson, Encoding.UTF8, "application/json");
 
             //Send a POST request to the specified Uri
             var response = await _httpClient.PostAsync(url, requestBodyContent);
+            //TODO: bad request...I don't know why
+
+            if (response.IsSuccessStatusCode)
+            {
+                //TODO
+            }
         }
 
     }
@@ -103,16 +119,16 @@ namespace MarketDataCollector
      */
     public class MarketData 
     {
-        public string? SecuritySymbol;
-        public decimal AskPrice;
-        public decimal BidPrice;
-        public long Timestamp;
+        public string? SecuritySymbol { get; set; }
+        public decimal AskPrice { get; set; }
+        public decimal BidPrice { get; set; }
+        public long Timestamp { get; set; }
     }
 
     //entry point
     class Program
     {
-        //In the main method, an instance of DataCollectionService is created
+        //an instance of DataCollectionService is created
         static async Task Main(string[] args)
         {
             var dataCollectionService = new DataCollectionService("BTC-PERPETUAL", "marketdata.json");

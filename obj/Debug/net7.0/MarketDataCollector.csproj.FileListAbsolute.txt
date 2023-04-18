@@ -13,3 +13,5 @@ C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\refint\MarketDataColl
 C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.pdb
 C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.genruntimeconfig.cache
 C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\ref\MarketDataCollector.dll
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\Newtonsoft.Json.dll
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.csproj.CopyComplete

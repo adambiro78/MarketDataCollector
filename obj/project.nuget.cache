@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "IfzWRX2yMSh/56+Im8u3F/tXYIAon4XfUg9l2aJSm2uVIHKLTAZDw7gKsxqby/iJzwJ0b3WvWL6BaILJBENYYA==",
+  "dgSpecHash": "ZZ98IPvjyjt6wmZRsHq0Y6c9eG5eiTPe6fA5puDNdfNw/62sqC5GudkBrusLwQUMj/1e6IPBx5Gw9t6R1yNVew==",
   "success": true,
   "projectFilePath": "C:\\WORK\\.NET_programs\\MarketDataCollector\\MarketDataCollector.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\adgbi\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }
