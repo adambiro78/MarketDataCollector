@@ -1,0 +1,15 @@
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.csproj.AssemblyReference.cache
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.GeneratedMSBuildEditorConfig.editorconfig
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.AssemblyInfoInputs.cache
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.AssemblyInfo.cs
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.csproj.CoreCompileInputs.cache
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\MarketDataCollector.exe
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\MarketDataCollector.deps.json
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\MarketDataCollector.runtimeconfig.json
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\MarketDataCollector.dll
+C:\WORK\.NET_programs\MarketDataCollector\bin\Debug\net7.0\MarketDataCollector.pdb
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.dll
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\refint\MarketDataCollector.dll
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.pdb
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\MarketDataCollector.genruntimeconfig.cache
+C:\WORK\.NET_programs\MarketDataCollector\obj\Debug\net7.0\ref\MarketDataCollector.dll
